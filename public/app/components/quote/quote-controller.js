@@ -13,7 +13,15 @@ function QuoteController(){
 	function drawQuote(quoteObj) {
 		console.log(quoteObj)
 		var quote = quoteObj.quote
-		document.getElementById('quote').innerHTML = quote
+		var template = `
+			<div class="row">
+				<div class="col-xs-12">
+					<h3>${quote}</h3>
+				</div>
+			</div>		
+		`
+
+		document.getElementById('quote').innerHTML = template
 	}
 
 	getQuote()

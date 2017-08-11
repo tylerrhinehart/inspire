@@ -13,7 +13,9 @@ server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
 
 //register your todos routes as api/routes
+var todoRouter = require('./routes/todos')
 
+server.use('/api/todos', todoRouter)
 
 
 //start your server listening....
