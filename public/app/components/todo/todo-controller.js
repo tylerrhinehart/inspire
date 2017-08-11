@@ -9,31 +9,68 @@ function TodoController() {
 	var todoService = new TodoService()
 
 	// Use this getTodos function as your callback for all other edits
-	function getTodos(){
+	function getTodos() {
 		//FYI DONT EDIT ME :)
 		todoService.getTodos(draw)
 	}
 
 	function draw(todos) {
+		console.log(todos)
+		var template = `
+			<table>
+			<thead>
+				<tr>
+					<th>Todo List</th>
+					<th>Completed</th>
+				</tr>
+			</thead>
+			<tbody>
+		`
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
-		var template = ''
+		for (var i = 0; i < todos.length; i++) {
+			var item = todos[i]
+			template += `
+				
+					<tr>
+						<td>${item.description}</td>
+						<td>
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</td>
+					</tr>
+						
+		`
+		}
+		template += `
+			</tbody>
+			</table>
+			<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+				<input type="text" name="description" placeholder="Todo Item">
+				<button type="submit">Add to List</button>
+			</form>
+		`
 		//DONT FORGET TO LOOP
+
+		document.getElementById('todo').innerHTML = template
 	}
 
 	this.addTodoFromForm = function (e) {
+		debugger
 		e.preventDefault() // <-- hey this time its a freebie don't forget this
 		// TAKE THE INFORMATION FORM THE FORM
 		var form = e.target
 		var todo = {
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			description: form.description.value
 		}
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
 		//YOU SHOULDN'T NEED TO CHANGE THIS
 		todoService.addTodo(todo, getTodos)
-		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
+		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
 
 	this.toggleTodoStatus = function (todoId) {
@@ -49,5 +86,5 @@ function TodoController() {
 	}
 
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
-
+	getTodos()
 }
