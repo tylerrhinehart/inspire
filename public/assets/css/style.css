@@ -1,9 +1,7 @@
-td {
-    margin-left: 5px;
-    margin-right: 5px;
+#author {
+    display: none;
 }
 
-tr {
-    margin-left: 5px;
-    margin-right: 5px;
-}
+/* #author:hover {
+    visibility: visible
+} */

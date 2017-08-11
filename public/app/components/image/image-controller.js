@@ -8,9 +8,18 @@ function ImageController() {
 
 	function drawImage(image) {
 		// console.log(image)
-		var url = image.large_url
+		var url = image.url
 		// console.log(url)
 		document.body.style.background = `url(${url}) no-repeat center center fixed`
+	}
+
+	var myVar = setInterval(function () {
+		myTimer();
+	}, 1000);
+
+	function myTimer() {
+		var d = new Date();
+		document.getElementById("clock").innerHTML = d.toLocaleTimeString();
 	}
 
 	getImage()
