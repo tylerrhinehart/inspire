@@ -13,11 +13,17 @@ function WeatherController() {
 			<div class="row">
 				<div class="col-xs-1 col-xs-offset-11">
 					<h3>${obj.name}</h3>
-					<h4>${obj.main.temp} K</h4>
+					<h4>${convertTemp(obj.main.temp)} F</h4>
 				</div>
 			</div>
 		`
 		document.getElementById('weather').innerHTML = template
+	}
+
+	function convertTemp(temp) {
+		var f = Math.ceil(temp * (9/5) - 459.67)
+		
+		return f
 	}
 
 }
