@@ -20,7 +20,7 @@ function TodoController() {
 			<table>
 			<thead>
 				<tr>
-					<th>Todo List</th>
+					<th>Todo List ${completedTodos(todos)}</th>
 					<th>Completed</th>
 				</tr>
 			</thead>
@@ -64,6 +64,20 @@ function TodoController() {
 		else {
 			return
 		}
+	}
+
+	function completedTodos(todos) {
+		var total = 0
+		var completed = 0
+		for (var i = 0; i < todos.length; i++) {
+			var item = todos[i]
+			total++
+			if(item.completed) {
+				completed++
+			}
+		}
+		var template = `(${completed}/${total})`
+		return template
 	}
 
 	this.addTodoFromForm = function (e) {
