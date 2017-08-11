@@ -5,7 +5,7 @@ var mongoose = require('mongoose')
 
 var todoSchema = new mongoose.Schema({
     description: { type: String, required: true },
-    completed: {type: Boolean}
+    completed: {type: Boolean, default: false}
 })
 
 var Todos = mongoose.model('Todo', todoSchema)
@@ -26,7 +26,7 @@ router.post('/', function (req, res, next) {
 		.catch(next)
 })
 
-router.put('/todoId', function (req, res, next) {
+router.put('/:todoId', function (req, res, next) {
 	var todoId = req.params.todoId
 	var updatedTodoObj = req.body
 	Todos.findByIdAndUpdate(todoId, updatedTodoObj)

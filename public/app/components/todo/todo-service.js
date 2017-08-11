@@ -25,7 +25,8 @@ function TodoService() {
 
 	this.toggleTodoStatus = function (todoId, getTodos) {
 		// MAKE SURE WE THINK THIS ONE THROUGH
-		var todo = {}
+		var todo = todoList.find(todo => todo._id == todoId)
+		todo.completed = !todo.completed
 		//STEP 1: Find the todo by its id **HINT** todoList
 
 		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
@@ -35,7 +36,7 @@ function TodoService() {
 			method: 'PUT',
 			contentType: 'application/json',
 			url: '/api/todos/' + todoId,
-			data: todo
+			data: JSON.stringify(todo)
 		})
 			.then((message) => {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?

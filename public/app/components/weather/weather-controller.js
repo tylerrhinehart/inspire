@@ -7,7 +7,7 @@ function WeatherController() {
 
 
 	function drawWeather(obj) {
-		console.log(obj.main)
+		// console.log(obj.main)
 		var template = ''
 		template = `
 			<div class="row">

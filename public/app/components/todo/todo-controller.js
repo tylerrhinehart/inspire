@@ -35,8 +35,8 @@ function TodoController() {
 					<tr>
 						<td>${item.description}</td>
 						<td>
-							<label>
-								<input type="checkbox" value="">
+							<label onclick="app.controllers.todoController.toggleTodoStatus('${item._id}')">
+								<input type="checkbox" value="" ${checked(item.completed)}>
 							</label>
 						</td>
 					</tr>
@@ -56,8 +56,16 @@ function TodoController() {
 		document.getElementById('todo').innerHTML = template
 	}
 
+	function checked(bool) {
+		if(bool) {
+			return 'checked'
+		}
+		else {
+			return
+		}
+	}
+
 	this.addTodoFromForm = function (e) {
-		debugger
 		e.preventDefault() // <-- hey this time its a freebie don't forget this
 		// TAKE THE INFORMATION FORM THE FORM
 		var form = e.target
