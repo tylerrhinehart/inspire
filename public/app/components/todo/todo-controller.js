@@ -39,6 +39,7 @@ function TodoController() {
 								<input type="checkbox" value="" ${checked(item.completed)}>
 							</label>
 						</td>
+						<td><i class="fa fa-minus-circle" aria-hidden="true" onclick="app.controllers.todoController.removeTodo('${item._id}')"></i></td>
 					</tr>
 						
 		`
@@ -57,7 +58,7 @@ function TodoController() {
 	}
 
 	function checked(bool) {
-		if(bool) {
+		if (bool) {
 			return 'checked'
 		}
 		else {
@@ -89,7 +90,7 @@ function TodoController() {
 
 	this.removeTodo = function (todoId) {
 		// ask the service to run the remove todo with this id
-
+		todoService.removeTodo(todoId, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 

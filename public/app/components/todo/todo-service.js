@@ -45,13 +45,22 @@ function TodoService() {
 			.fail(logError) // BECAUSE AJAX IS A UNIQUE SNOWFLAKE AND HAS TO BE DIFFERENT YOU CANT USE .catch
 	}
 
-	this.removeTodo = function () {
+	this.removeTodo = function (todoId, getTodos) {
 		// Umm this one is on you.... It's also a unique snowflake the method is a DELETE
-		
+		$.ajax({
+			method: 'DELETE',
+			contentType: 'application/json',
+			url: '/api/todos/' + todoId
+		})
+			.then((message) => {
+				//DO YOU WANT TO DO ANYTHING WITH THIS?
+				getTodos() // <-- LEAVE ME ALONE I WORK LIKE THIS
+			})
+			.fail(logError)
 	}
 
 
 
-// I KNOW LOTS OF CODE RIGHT
+	// I KNOW LOTS OF CODE RIGHT
 
 }
