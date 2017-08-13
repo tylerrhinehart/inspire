@@ -11,6 +11,7 @@ function ImageController() {
 		var url = image.url
 		// console.log(url)
 		document.body.style.background = `url(${url}) no-repeat center center fixed`
+		document.body.style.backgroundSize = 'cover'
 	}
 
 	var myVar = setInterval(function () {
@@ -19,7 +20,8 @@ function ImageController() {
 
 	function myTimer() {
 		var d = new Date();
-		document.getElementById("clock").innerHTML = d.toLocaleTimeString();
+		var template = `<div><p>${d.toLocaleTimeString()}</p></div>`
+		document.getElementById("clock").innerHTML = template
 	}
 
 	getImage()

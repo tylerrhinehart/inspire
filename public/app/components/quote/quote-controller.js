@@ -14,15 +14,16 @@ function QuoteController(){
 		console.log(quoteObj)
 		var quote = quoteObj.quote
 		var template = `
-			<div class="row">
-				<div class="col-xs-12">
-					<h3>${quote}</h3>
-					<h4 id="author">${quoteObj.author}</h4>
-				</div>
-			</div>		
+			<!-- <div class="row" id="quote-row">
+				<div class="col-xs-6 col-xs-offset-3"> -->
+					<h3 id="quote-tag">"${quote}"</h3>
+					<h4 id="author">~${quoteObj.author}~</h4>
+				<!-- </div>
+			</div> -->
 		`
 
 		document.getElementById('quote').innerHTML = template
+		document.getElementById('quote-tag').style.fontSize = '2rem'
 	}
 
 	$("#quote").hover(function(){
