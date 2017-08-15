@@ -15,7 +15,6 @@ function TodoController() {
 	}
 
 	function draw(todos) {
-		console.log(todos)
 		var template = `
 			<table>
 			<thead>

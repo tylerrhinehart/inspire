@@ -11,10 +11,8 @@ function QuoteController() {
 	// })
 
 	function drawQuote(quoteObj) {
-		console.log(quoteObj)
 		var quote = quoteObj.quote
 		var searchName = searchAuthor(`${quoteObj.author}`)
-		console.log(searchName)
 		var template = `
 			<div class="row" id="quote-row">
 				<div class="col-xs-6 col-xs-offset-3">
