@@ -11,7 +11,6 @@ function QuoteController(){
 	// })
 
 	function drawQuote(quoteObj) {
-		console.log(quoteObj)
 		var quote = quoteObj.quote
 		var template = `
 			<!-- <div class="row" id="quote-row">

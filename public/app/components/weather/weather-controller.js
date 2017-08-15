@@ -7,13 +7,14 @@ function WeatherController() {
 
 
 	function drawWeather(obj) {
-		// console.log(obj.main)
+		console.log(obj)
 		var template = ''
 		template = `
 			<div class="row">
-				<div class="col-xs-1 col-xs-offset-11">
+				<div class="col-xs-2 col-xs-offset-10">
 					<h3>${obj.name}</h3>
-					<h4>${convertTemp(obj.main.temp)} F</h4>
+					<h4>${obj.weather[0].description}
+					<h4>${convertTemp(obj.main.temp)} F<img src="//openweathermap.org/img/w/${obj.weather[0].icon}.png"></h4>
 				</div>
 			</div>
 		`

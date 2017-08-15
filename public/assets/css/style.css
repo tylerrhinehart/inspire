@@ -25,3 +25,18 @@ body {
     font-size: 7rem;
     color: white;
 }
+
+#todo {
+    position: fixed;
+    bottom: 3vh;
+    right: 0;
+    color: white;
+}
+
+#weather {
+    color: white;
+}
+
+input, select, textarea {
+    color: black;
+}

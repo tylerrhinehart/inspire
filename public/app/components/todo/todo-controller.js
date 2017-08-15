@@ -26,8 +26,7 @@ function TodoController() {
 			</thead>
 			<tbody>
 		`
-		//WHAT IS MY PURPOSE?
-		//BUILD YOUR TODO TEMPLATE HERE
+		
 		for (var i = 0; i < todos.length; i++) {
 			var item = todos[i]
 			template += `
@@ -49,7 +48,7 @@ function TodoController() {
 			</table>
 			<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
 				<input type="text" name="description" placeholder="Todo Item">
-				<button type="submit">Add to List</button>
+				<button type="submit" class="btn btn-primary">Add to List</button>
 			</form>
 		`
 		//DONT FORGET TO LOOP
